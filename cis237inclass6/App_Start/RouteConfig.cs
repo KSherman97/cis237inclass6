@@ -15,9 +15,16 @@ namespace cis237inclass6
 
             routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                url: "{controller}/{action}/{id}", // { } are placeholders in the url
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional } // UrlParameter.optional = means an ID doesn't have to be provided
             );
+
+            //routes.MapRoute(
+            //    name: "AnotherOne",
+            //    url: "something/foo/bar",
+            //    defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+            //);
         }
+
     }
 }

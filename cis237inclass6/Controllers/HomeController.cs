@@ -26,5 +26,12 @@ namespace cis237inclass6.Controllers
 
             return View();
         }
+
+        public ActionResult foo()
+        {
+            ViewBag.Message = "Your foo page.";
+
+            return View();
+        }
     }
 }
