@@ -29,6 +29,8 @@ namespace cis237inclass6.Controllers
 
         public ActionResult foo()
         {
+
+            ViewBag.Test = "FooBar";
             ViewBag.Message = "Your foo page.";
 
             return View();
