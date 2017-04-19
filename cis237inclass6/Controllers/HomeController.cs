@@ -27,6 +27,7 @@ namespace cis237inclass6.Controllers
             return View();
         }
 
+        [Authorize]
         public ActionResult foo()
         {
 

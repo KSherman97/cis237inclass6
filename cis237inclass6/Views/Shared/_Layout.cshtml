@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Kyle Sherman</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -24,7 +24,15 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Foo Page", "Foo", "Home")</li>
+                    @*  check to see if the user is authenticated if so, 
+                        we can render out the nav link to the foo page *@
+                    <!-- this is also a valid way of doing a comment,
+                        can also ship out to the clint, so it should be avoided -->
+                    @if (Request.IsAuthenticated)
+                    { 
+                        <li>@Html.ActionLink("Foo Page", "Foo", "Home")</li>
+                        <li>@Html.ActionLink("Cars", "Index", "Cars")</li>
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -34,7 +42,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Kyle Sherman</p>
         </footer>
     </div>
 
