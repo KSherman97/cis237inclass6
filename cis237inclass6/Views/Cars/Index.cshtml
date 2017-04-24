@@ -6,14 +6,41 @@
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-            <th>
-                Year
-                @* Html.DisplayNameFor(model => model.year) } *@
+<!-- This is a filter for the output sorting -->
+<div class="form-group">
+    <fieldset>
+        <legend>SEARCH FILTER</legend>
+        <!-- This is C# Code -->
+        @{
+            @*// open up a form that will go to the filter method'*@
+                    @*// on the Cars controller with a post request*@
+                    using (Html.BeginForm("Filter", "Cars", FormMethod.Post, new { @class = "form-inline" }))
+                    {
+                        @*// render out the anti-forgery token*@
+                        @Html.AntiForgeryToken()
+                        
+                        // adding string cast for viewbag returns the filter in the text box
+                        <label for="make">Make</label>
+                        @Html.TextBox("make", (string)ViewBag.filterMake)
+                        <label for="min">Minimum Cylinders</label>
+                        @Html.TextBox("min", (string)ViewBag.filterMin, new { @type = "number" })
+                        <label for="max">Maximum Cylinders</label>
+                        @Html.TextBox("max", (string)ViewBag.filterMax, new { @type = "number" })
+                        // <br />
+                        <input type="submit" value="filter" class="btn btn-info pull-right" />
+                    }
+                }
+            </fieldset>
+        </div>
+
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="table">
+            <tr>
+                    <th>
+                        Year
+                        @* Html.DisplayNameFor(model => model.year) } *@
             </th>
             <th>
                 Make
